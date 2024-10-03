@@ -1,0 +1,19 @@
+version: '3'
+services:
+  burgerorderer:
+    build: ./Containers/BurgerOrderer
+    ports:
+      - "3000:3000"
+
+  kitchenview:
+    build: ./Containers/KitchenView
+    ports:
+      - "4000:4000"
+
+  menustore:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: 1955
+      MYSQL_DATABASE: burgerdb
+    ports:
+      - "3306:3306"
